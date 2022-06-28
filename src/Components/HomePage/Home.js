@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'antd';
 import './Home.css'
+import { Link } from 'react-router-dom';
 function Home() {
     return (
         <div className='flex-container'>
@@ -11,8 +12,14 @@ function Home() {
                 </div>
                 <p>Please select an option from below</p>
                 <div className="home-container-btn">
-                    <Button  className='btn-block' type='primary'>Register</Button>
-                    <Button  className='btn-block' type='primary'>Login</Button>
+                    <Link to='/register'>
+                        <Button className='btn-block' type='primary'>Register</Button>
+
+                    </Link>
+                    <Link to='/login'>
+                        <Button className='btn-block' type='primary'>Login</Button>
+
+                    </Link>
 
                 </div>
             </div>
