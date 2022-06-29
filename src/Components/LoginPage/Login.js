@@ -2,9 +2,14 @@ import React from "react";
 import Header from "../Header/Header";
 import Footer from '../Footer/Footer';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button ,message} from 'antd';
 import { Input, Space } from 'antd';
 function Login() {
+
+  const loginMsg = () => {
+    message.info('Login is clicked')
+  }
+
   return (
     <>
       <Header />
@@ -21,7 +26,7 @@ function Login() {
              
           </Space>
 
-          <Button className="btn-block" type="primary">
+          <Button onClick={loginMsg} className="btn-block" type="primary">
             Login
           </Button>
         </div>

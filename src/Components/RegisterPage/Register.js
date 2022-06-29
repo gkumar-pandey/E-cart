@@ -2,9 +2,15 @@ import React from 'react'
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button,message } from 'antd';
 import { Input, Space } from 'antd';
 function Register() {
+  
+  const register = ()=> {
+    message.info('Register btn clicked')
+  }
+
+
   return (
     <>
       <Header/>
@@ -18,7 +24,7 @@ function Register() {
             <Input.Password placeholder="Confirm password" prefix={<LockOutlined />} />
           </Space>
 
-          <Button className='btn-block' type='primary'>Register</Button>
+          <Button onClick={register} className='btn-block' type='primary'>Register</Button>
 
         </div>
       </div>
