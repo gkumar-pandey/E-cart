@@ -13,11 +13,11 @@ function Login() {
           <h1>Login to Qkart</h1>
           <Space direction="vertical" style={{ width: "80%" }}>
             <Input
-              placeholder="default size"
+              placeholder="Username"
               maxLength="5"
               prefix={<UserOutlined />}
             />
-            <Input.Password placeholder=" password" prefix={<LockOutlined />} />
+            <Input.Password placeholder=" Password" prefix={<LockOutlined />} />
              
           </Space>
 

@@ -13,9 +13,9 @@ function Register() {
         <div className="container">
           <h1>Make an account</h1>
           <Space direction='vertical' style={{width: '80%'}}>
-            <Input placeholder="default size" maxLength='5' prefix={<UserOutlined />} />
-            <Input.Password placeholder=" password" prefix={<LockOutlined />} />
-            <Input.Password placeholder=" password" prefix={<LockOutlined />} />
+            <Input placeholder="Username" maxLength='5' prefix={<UserOutlined />} />
+            <Input.Password placeholder=" Password" prefix={<LockOutlined />} />
+            <Input.Password placeholder="Confirm password" prefix={<LockOutlined />} />
           </Space>
 
           <Button className='btn-block' type='primary'>Register</Button>
