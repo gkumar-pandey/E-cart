@@ -4,6 +4,8 @@ import Footer from "../Footer/Footer";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Button, message } from "antd";
 import { Input, Space } from "antd";
+import { auth } from "../Firebase/Firebase-config";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 function Register() {
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
@@ -76,12 +78,28 @@ function Register() {
     return isValid;
   };
 
+  // * Register user using firebase */
+  const registerUser = async (userName, userPassword) => {
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        userName,
+        userPassword
+      );
+      message.success("Register Successfully ✌🏻");
+    } catch (error) {
+      message.error("Something Went Wrong");
+    }
+  };
   const registerBtnClickHandle = () => {
     const allRegistrationInputsAreValid = valid(
       userName,
       password,
       confirmPassword
     );
+    if (allRegistrationInputsAreValid) {
+      registerUser(userName, password);
+    }
   };
 
   return (
