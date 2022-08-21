@@ -12,7 +12,7 @@ function Header() {
         </div>
 
         <div className="nav-links">
-          <Link to={`/explore`}>
+          <Link to={`/products`}>
             Explore
           </Link>
           <Link to={`/login`}>

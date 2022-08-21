@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import { useNavigate } from "react-router-dom";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Button, message } from "antd";
 import { Input, Space } from "antd";
@@ -10,7 +11,7 @@ function Register() {
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
-
+  let navigate = useNavigate(); //? useNavigate used to redirect ot login page
   const valid = (userName, password, confirmPassword) => {
     let isValid = true;
     if (userName !== "" && isValid) {
@@ -87,6 +88,9 @@ function Register() {
         userPassword
       );
       message.success("Register Successfully ✌🏻");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
     } catch (error) {
       message.error("Something Went Wrong");
     }
