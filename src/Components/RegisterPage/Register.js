@@ -114,7 +114,7 @@ function Register() {
           <h1>Make an account</h1>
           <Space direction="vertical" style={{ width: "80%" }}>
             <Input
-              placeholder="Username"
+              placeholder="Email"
               maxLength="32"
               prefix={<UserOutlined />}
               onChange={(e) => {

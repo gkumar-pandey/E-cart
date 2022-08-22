@@ -77,7 +77,7 @@ function Login() {
           <Space direction="vertical" style={{ width: "80%" }}>
             <Input
               value={loginUserName}
-              placeholder="Username"
+              placeholder="Email"
               maxLength="32"
               prefix={<UserOutlined />}
               onChange={(e) => setLoginUserName(e.target.value)}
