@@ -1,0 +1,16 @@
+.product-container {
+  padding: 1rem 5rem;
+}
+
+@media (max-width: 768px) {
+    .product-container{
+        /* border: 1px solid red; */
+        padding: 0;
+    }
+}
+
+@media (max-width: 600px) {
+  .product-container {
+    padding: 1rem 5rem;
+  }
+}

@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Button, message } from "antd";
 import { Input, Space } from "antd";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../Firebase/Firebase-config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 function Login() {
   const [loginUserName, setLoginUserName] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const navigate = useNavigate();
 
   // ! Check validation of Login input values
   //? if userName is empty return false else true
@@ -32,24 +36,54 @@ function Login() {
     return valid;
   };
 
-  const handleLoginClickBtn = () => {
-    console.log(isValid(loginUserName, loginPassword));
+  //! clear input fields
+
+  const clearInputField = () => {
+    setLoginPassword("");
+    setLoginUserName("");
+  };
+
+  // TODO signin using firebase
+  const loginByUser = async (loginUserName, loginPassword) => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginUserName,
+        loginPassword
+      );
+      message.success("Login Successfull");
+      return true;
+    } catch (error) {
+      message.error("Username does not exist");
+      return false;
+    }
+  };
+  const handleLoginClickBtn = async () => {
+    if (isValid(loginUserName, loginPassword)) {
+      const isLoginSuccess = await loginByUser(loginUserName, loginPassword);
+      if (isLoginSuccess) {
+        clearInputField();
+        navigate("/products");
+      }
+    }
   };
 
   return (
     <>
-      <Header />
-      <div className="flex-container">
-        <div className="container">
+      <Header/>
+      <div className="flex-container" style={{backgroundColor:'#eee'}} >
+        <div className="container"  >
           <h1>Login to Qkart</h1>
           <Space direction="vertical" style={{ width: "80%" }}>
             <Input
+              value={loginUserName}
               placeholder="Username"
               maxLength="32"
               prefix={<UserOutlined />}
               onChange={(e) => setLoginUserName(e.target.value)}
             />
             <Input.Password
+              value={loginPassword}
               placeholder=" Password"
               prefix={<LockOutlined />}
               onChange={(e) => setLoginPassword(e.target.value)}
@@ -65,7 +99,7 @@ function Login() {
           </Button>
         </div>
       </div>
-      <Footer />
+      <Footer/>
     </>
   );
 }

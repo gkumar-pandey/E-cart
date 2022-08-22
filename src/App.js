@@ -5,6 +5,7 @@ import Login from "./Components/LoginPage/Login";
 import Product from "./Components/ProductPage/Product";
 import "antd/dist/antd.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Search from "./Components/Search/Search";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/products" element={<Product />} />
+          <Route path="/products" element={<Search />} />
         </Routes>
       </Router>
     </div>
