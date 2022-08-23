@@ -7,6 +7,8 @@ import { Input, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/Firebase-config";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import GoogleButton from "react-google-button";
+
 function Login() {
   const [loginUserName, setLoginUserName] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -70,9 +72,9 @@ function Login() {
 
   return (
     <>
-      <Header/>
-      <div className="flex-container" style={{backgroundColor:'#eee'}} >
-        <div className="container"  >
+      <Header />
+      <div className="flex-container" style={{ backgroundColor: "#eee" }}>
+        <div className="container">
           <h1>Login to Qkart</h1>
           <Space direction="vertical" style={{ width: "80%" }}>
             <Input
@@ -93,13 +95,18 @@ function Login() {
           <Button
             onClick={handleLoginClickBtn}
             className="btn-block"
+            size="large"
             type="primary"
+            style={{ width: "200px" }}
           >
             Login
           </Button>
+          <div className="google-sign-up-btn"  style={{width:'200px'}} >
+            <GoogleButton style={{ width: "100%", height: "100%" }} />
+          </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

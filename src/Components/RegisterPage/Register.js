@@ -7,6 +7,7 @@ import { Button, message } from "antd";
 import { Input, Space } from "antd";
 import { auth } from "../Firebase/Firebase-config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import GoogleButton from "react-google-button";
 function Register() {
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
@@ -109,7 +110,7 @@ function Register() {
   return (
     <>
       <Header />
-      <div className="flex-container" style={{backgroundColor:'#eee'}} >
+      <div className="flex-container" style={{ backgroundColor: "#eee" }}>
         <div className="container">
           <h1>Make an account</h1>
           <Space direction="vertical" style={{ width: "80%" }}>
@@ -140,15 +141,29 @@ function Register() {
           <Button
             onClick={registerBtnClickHandle}
             className="btn-block"
+            size="large"
             type="primary"
+            style={{width:'200px'}}
           >
             Register
           </Button>
+          <div className="google-sign-up-btn" style={coustemStyle.googleBtn} >
+            <GoogleButton style={{ width: '100%', height: '100%', }} />
+          </div>
         </div>
       </div>
       <Footer />
     </>
   );
+}
+
+const coustemStyle = {
+  googleBtn: {
+    // border: '1px solid red',
+    width: '200px',
+    height: 'auto'
+
+  }
 }
 
 export default Register;
