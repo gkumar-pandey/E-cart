@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/Firebase-config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import GoogleButton from "react-google-button";
+import { signInWithGoogle } from "../RegisterPage/Register";
 
 function Login() {
   const [loginUserName, setLoginUserName] = useState("");
@@ -70,6 +71,13 @@ function Login() {
     }
   };
 
+  const googleLoginBtnHandler = async () => {
+    const user = await signInWithGoogle();
+    if(user){
+      navigate('/products')
+    }
+  };
+
   return (
     <>
       <Header />
@@ -101,8 +109,11 @@ function Login() {
           >
             Login
           </Button>
-          <div className="google-sign-up-btn"  style={{width:'200px'}} >
-            <GoogleButton style={{ width: "100%", height: "100%" }} />
+          <div className="google-sign-up-btn" style={{ width: "200px" }}>
+            <GoogleButton
+              onClick={googleLoginBtnHandler}
+              style={{ width: "100%", height: "100%" }}
+            />
           </div>
         </div>
       </div>

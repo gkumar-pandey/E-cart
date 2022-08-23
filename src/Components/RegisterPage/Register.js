@@ -6,13 +6,34 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Button, message } from "antd";
 import { Input, Space } from "antd";
 import { auth } from "../Firebase/Firebase-config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import GoogleButton from "react-google-button";
+
+
+
+const provider = new GoogleAuthProvider();
+
+export const signInWithGoogle = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    message.success("Sign in Successfully ✌🏻");
+    return result;
+  } catch (error) {
+    message.error("Something went wrong");
+  }
+};
+
 function Register() {
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
+
   let navigate = useNavigate(); //? useNavigate used to redirect ot login page
+ 
   const valid = (userName, password, confirmPassword) => {
     let isValid = true;
     if (userName !== "" && isValid) {
@@ -106,6 +127,14 @@ function Register() {
       registerUser(userName, password);
     }
   };
+  // Register with google authentication
+
+  const googleSignInBtnHandler = async () => {
+    const user = await signInWithGoogle();
+    if (user) {
+      navigate("/products");
+    }
+  };
 
   return (
     <>
@@ -143,12 +172,15 @@ function Register() {
             className="btn-block"
             size="large"
             type="primary"
-            style={{width:'200px'}}
+            style={{ width: "200px" }}
           >
             Register
           </Button>
-          <div className="google-sign-up-btn" style={coustemStyle.googleBtn} >
-            <GoogleButton style={{ width: '100%', height: '100%', }} />
+          <div className="google-sign-up-btn" style={coustemStyle.googleBtn}>
+            <GoogleButton
+              onClick={googleSignInBtnHandler}
+              style={{ width: "100%", height: "100%" }}
+            />
           </div>
         </div>
       </div>
@@ -160,10 +192,9 @@ function Register() {
 const coustemStyle = {
   googleBtn: {
     // border: '1px solid red',
-    width: '200px',
-    height: 'auto'
-
-  }
-}
+    width: "200px",
+    height: "auto",
+  },
+};
 
 export default Register;
