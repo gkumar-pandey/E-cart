@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom'
 import { Button } from 'antd';
 import './Header.css'
 
-function Header() {
+function Header({ search }) {
   return (
     <div>
       <div className='nav-bar'>
         <div className='nav-logo'>
           <img src='icon.svg' />
         </div>
-
+        <div className="searchbar">
+          {search}
+        </div>
         <div className="nav-links">
           <Link to={`/products`}>
             Explore
