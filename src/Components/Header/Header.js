@@ -2,10 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import UserProfile from "./UserProfile";
+
 import "./Header.css";
 import { Input } from "antd";
 
 function Header({ searchText, Search, productPage, searchBarHandle }) {
+  const isLoggedIn = localStorage.getItem("userName");
+
   return (
     <div>
       <div className="nav-bar">
@@ -23,17 +26,19 @@ function Header({ searchText, Search, productPage, searchBarHandle }) {
           </div>
         ) : null}
         <div className="nav-links">
-          {/* <Link to={`/products`}>
-            Explore
-          </Link>
-          <Link to={`/login`}>
-            Login
-          </Link>
-          <Link to='/register'>
-            <Button className='btn-block' type='primary'>Register</Button>
-
-          </Link> */}
-          <UserProfile name="Gautam kumar" />
+          {isLoggedIn ? (
+            <UserProfile />
+          ) : (
+            <>
+              <Link to={`/products`}>Explore</Link>
+              <Link to={`/login`}>Login</Link>
+              <Link to="/register">
+                <Button className="btn-block" type="primary">
+                  Register
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

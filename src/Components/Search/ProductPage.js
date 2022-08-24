@@ -44,14 +44,14 @@ function ProductPage() {
     setSearchText(searchTerm);
   };
 
-  // ! Debounce search
+  // ! Debounce search start
   useEffect(() => {
     const timer = setTimeout(() => {
       Search(searchText);
     }, 400);
     return () => clearTimeout(timer);
   }, [searchText]);
-
+  //! Debounce search end
   return (
     <>
       <Header

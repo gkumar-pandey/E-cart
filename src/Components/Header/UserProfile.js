@@ -1,13 +1,26 @@
 import { Button } from "antd";
 import React from "react";
+import { auth } from "../Firebase/Firebase-config";
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
+function UserProfile() {
+    const navigate = useNavigate()
 
-function UserProfile({ img, name, logOutHandler }) {
+    const logOutHandler = () => {
+        localStorage.removeItem('userName')
+        localStorage.removeItem('userProfileImg')
+        signOut(auth)
+        navigate('/')
+    }
+    const userName = localStorage.getItem('userName').split(' ')[0];
+
     return (
         <div className="user-profile-container" >
             <div className="profilepic">
-                <img src={img} />
-                <p>{name}</p>
+                <img src={localStorage.getItem('userProfileImg')} style={{ width: '30px', height: '30px' }} alt='' />
+                <p>{userName}</p>
+
             </div>
 
             <div >

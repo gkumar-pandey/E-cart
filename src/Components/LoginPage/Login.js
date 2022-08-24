@@ -72,9 +72,15 @@ function Login() {
   };
 
   const googleLoginBtnHandler = async () => {
-    const user = await signInWithGoogle();
-    if(user){
-      navigate('/products')
+    const { user } = await signInWithGoogle();
+
+     
+    if (user) {
+      const userName = user.displayName;
+      const userProfileImg = user.photoURL;
+      localStorage.setItem("userName", userName);
+      localStorage.setItem("userProfileImg", userProfileImg);
+      navigate("/products");
     }
   };
 
