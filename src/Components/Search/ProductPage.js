@@ -5,16 +5,25 @@ import Product from "../ProductPage/Product";
 import Data from "../../Data/Data";
 import "./Search.css";
 import Footer from "../Footer/Footer";
-const ProductCard = ({ title, category, price, rating, img }) => {
+import Cartcontainer from "../Cart/Cartcontainer";
+const ProductCard = ({
+  title,
+  category,
+  price,
+  rating,
+  img,
+  addToCartHandler,
+}) => {
   return (
     <>
-      <Col sm={12} sx={24} md={6}>
+      <Col sm={12} sx={24} md={6} style={{ width: "100%" }}>
         <Product
           title={title}
           category={category}
           price={price}
           rating={rating}
           img={img}
+          addToCartHandler={addToCartHandler}
         />
       </Col>
     </>
@@ -52,6 +61,8 @@ function ProductPage() {
     return () => clearTimeout(timer);
   }, [searchText]);
   //! Debounce search end
+  //TODO implement add to cart function
+  const addToCartHandler = () => {};
   return (
     <>
       <Header
@@ -67,18 +78,26 @@ function ProductPage() {
         }}
       >
         <Row>
-          {filterProduct.map((product, idx) => {
-            return (
-              <ProductCard
-                key={idx}
-                title={product.product}
-                price={product.price}
-                rating={product.rating}
-                category={product.category}
-                img={product.img}
-              />
-            );
-          })}
+          <Col md={18} style={{ border: "1px solid red" }}>
+            <Row>
+              {filterProduct.map((product, idx) => {
+                return (
+                  <ProductCard
+                    key={idx}
+                    title={product.product}
+                    price={product.price}
+                    rating={product.rating}
+                    category={product.category}
+                    img={product.img}
+                    addToCartHandler={addToCartHandler}
+                  />
+                );
+              })}
+            </Row>
+          </Col>
+          <Col md={6} sx={24} style={{ width: "100%" }}>
+            <Cartcontainer />
+          </Col>
         </Row>
       </div>
       <Footer />

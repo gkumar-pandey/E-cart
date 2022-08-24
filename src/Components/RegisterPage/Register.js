@@ -13,8 +13,6 @@ import {
 } from "firebase/auth";
 import GoogleButton from "react-google-button";
 
-
-
 const provider = new GoogleAuthProvider();
 
 export const signInWithGoogle = async () => {
@@ -33,7 +31,7 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState();
 
   let navigate = useNavigate(); //? useNavigate used to redirect ot login page
- 
+
   const valid = (userName, password, confirmPassword) => {
     let isValid = true;
     if (userName !== "" && isValid) {
