@@ -63,7 +63,10 @@ function Login() {
   };
   const handleLoginClickBtn = async () => {
     if (isValid(loginUserName, loginPassword)) {
-      const isLoginSuccess = await loginByUser(loginUserName, loginPassword);
+      const isLoginSuccess = await loginByUser(
+        loginUserName.trim(),
+        loginPassword.trim()
+      );
       if (isLoginSuccess) {
         clearInputField();
         navigate("/products");
@@ -72,12 +75,12 @@ function Login() {
   };
 
   const googleLoginBtnHandler = async () => {
-    const { user } = await signInWithGoogle();
+    const res = await signInWithGoogle();
+    console.log(res);
 
-     
-    if (user) {
-      const userName = user.displayName;
-      const userProfileImg = user.photoURL;
+    if (res) {
+      const userName = res.user.displayName;
+      const userProfileImg = res.user.photoURL;
       localStorage.setItem("userName", userName);
       localStorage.setItem("userProfileImg", userProfileImg);
       navigate("/products");
