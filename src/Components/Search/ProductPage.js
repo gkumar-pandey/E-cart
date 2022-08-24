@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "antd";
 import Header from "../Header/Header";
 import Product from "../ProductPage/Product";
 import Data from "../../Data/Data";
 import "./Search.css";
 import Footer from "../Footer/Footer";
-import { Input } from "antd";
 const ProductCard = ({ title, category, price, rating, img }) => {
   return (
     <>
@@ -21,32 +20,46 @@ const ProductCard = ({ title, category, price, rating, img }) => {
     </>
   );
 };
-const Search = (value) => {
-  console.log(value);
-};
-
-const SearchField = () => {
-  return (
-    <Input.Search
-      placeholder="Search a product"
-      enterButton
-      onChange={(e) => Search(e.target.value)}
-    />
-  );
-};
 
 function ProductPage() {
+  const [isLoggedIn, setIsLoggedIn] = useState("");
+  const [productList, setProductList] = useState(Data);
+  const [filterProduct, setFilterProduct] = useState(Data);
+  const [searchText, setSearchText] = useState("");
 
-  const [isLoggedIn, setIsLoggedIn] = useState('');
-  const [productList, setProductList] = useState(Data)
+  const Search = (value) => {
+    const filteredProducts = productList.filter(
+      (item) =>
+        item.product.toLowerCase().includes(value.toLowerCase()) ||
+        item.category.toLowerCase().includes(value.toLowerCase())
+    );
+    if (searchText) {
+      setFilterProduct(filteredProducts);
+    } else {
+      setFilterProduct(Data);
+    }
+  };
 
-  const debounceSearch= ()=> {
-    
-  }
+  const searchBarHandle = (searchTerm) => {
+    setSearchText(searchTerm);
+  };
+
+  // ! Debounce search
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      Search(searchText);
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [searchText]);
 
   return (
     <>
-      <Header search={<SearchField />} />
+      <Header
+        productPage={true}
+        searchBarHandle={searchBarHandle}
+        Search={Search}
+        searchText={searchText}
+      />
       <div
         className="product-container"
         style={{
@@ -54,7 +67,7 @@ function ProductPage() {
         }}
       >
         <Row>
-          {productList.map((product, idx) => {
+          {filterProduct.map((product, idx) => {
             return (
               <ProductCard
                 key={idx}

@@ -5,7 +5,7 @@ import Login from "./Components/LoginPage/Login";
 import Product from "./Components/ProductPage/Product";
 import "antd/dist/antd.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ProductPage from "./Components/Search/ ProductPage";
+import ProductPage from "./Components/Search/ProductPage";
 function App() {
   return (
     <div className="App">

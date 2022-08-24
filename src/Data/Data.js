@@ -34,7 +34,7 @@ const Data = [
     product: "IPhone XR",
     category: "Phones",
     img: "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    price: "100",
+    price: "₹100",
     rating: '⭐⭐⭐⭐⭐'
 
   },
@@ -42,7 +42,7 @@ const Data = [
     product: "Basketball",
     category: "Sports",
     img: "https://images.pexels.com/photos/3558072/pexels-photo-3558072.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    price: "100",
+    price: "₹100",
     rating: '⭐⭐⭐⭐⭐'
 
   },
