@@ -3,10 +3,17 @@
   border: 1px solid red;
 }
 
-.card{
-  /* border: 1px solid red; */
+.card {
   width: 400px;
   margin: 1rem auto;
+}
+
+.delete-icon{
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: flex-start;
+  color: red;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -17,9 +24,7 @@
 }
 
 @media (max-width: 600px) {
-  
-  .card{
+  .card {
     width: 350px;
-    /* border: 1px solid red; */
   }
 }

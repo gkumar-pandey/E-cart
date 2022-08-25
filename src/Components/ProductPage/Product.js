@@ -1,7 +1,5 @@
 import React from "react";
 import Card from "antd/lib/card/Card";
-import Header from "../Header/Header";
-import Data from "../../Data/Data";
 import { Button } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import "./Product.css";
@@ -12,7 +10,6 @@ function Product({product, img, title, category, price, rating, addToCartHandler
       className="product-card-container"
       style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
     >
-      {/* <Header /> */}
       <Card
         hoverable
         style={{
@@ -22,7 +19,6 @@ function Product({product, img, title, category, price, rating, addToCartHandler
         className="product-card"
         cover={<img alt="example" style={{ height: "200px" }} src={img} />}
       >
-        {/* <img className="product-img" src={img} /> */}
         <div className="product-info">
           <div className="product-info-text">
             <div className="product-title">{title}</div>

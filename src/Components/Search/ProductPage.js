@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { message } from "antd";
 import { Col, Row } from "antd";
 import Header from "../Header/Header";
 import Product from "../ProductPage/Product";
@@ -6,29 +7,6 @@ import Data from "../../Data/Data";
 import "./Search.css";
 import Footer from "../Footer/Footer";
 import Cartcontainer from "../Cart/Cartcontainer";
-// const ProductCard = ({
-//   title,
-//   category,
-//   price,
-//   rating,
-//   img,
-//   addToCartHandler,
-// }) => {
-//   return (
-//     <>
-//       <Col sm={12} sx={24} md={6} style={{ width: "100%" }}>
-//         <Product
-//           title={title}
-//           category={category}
-//           price={price}
-//           rating={rating}
-//           img={img}
-//           addToCartHandler={addToCartHandler}
-//         />
-//       </Col>
-//     </>
-//   );
-// };
 
 function ProductPage() {
   const [isLoggedIn, setIsLoggedIn] = useState("");
@@ -64,12 +42,24 @@ function ProductPage() {
   //! Debounce search end
   //TODO : IMPLEMENT ADD TO CART FUNCTION
   const addToCartHandler = (cart) => {
-    setAddToCart((preCart) => {
-      console.log(preCart);
-      return [cart, ...preCart];
-    });
+    if (addToCart.includes(cart)) {
+      message.warning("Already added 🤘🏼");
+      return;
+    } else {
+      setAddToCart((preCart) => {
+        return [cart, ...preCart];
+      });
+      message.success("Item is Added to cart 🛒");
+    }
   };
   // TODO : IMPLEMENT REMOVE FROM CART FUNCTION
+  const removeFromCart = (id) => {
+    const productAfterRemove = addToCart.filter((item) => {
+      return item.id !== id;
+    });
+    setAddToCart([...productAfterRemove]);
+    message.success("Product is removed ✌🏻");
+  };
   return (
     <>
       <Header
@@ -113,7 +103,10 @@ function ProductPage() {
             </Row>
           </Col>
           <Col md={6} sx={24} style={{ width: "100%" }}>
-            <Cartcontainer productListInCart={addToCart} />
+            <Cartcontainer
+              removeFromCart={removeFromCart}
+              productListInCart={addToCart}
+            />
           </Col>
         </Row>
       </div>
