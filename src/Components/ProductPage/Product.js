@@ -6,7 +6,7 @@ import { Button } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import "./Product.css";
 
-function Product({ img, title, category, price, rating, addToCartHandler }) {
+function Product({product, img, title, category, price, rating, addToCartHandler }) {
   return (
     <div
       className="product-card-container"
@@ -37,7 +37,7 @@ function Product({ img, title, category, price, rating, addToCartHandler }) {
           className="btn"
           type="primary"
           shape="round"
-          onClick={() => addToCartHandler()}
+          onClick={() => addToCartHandler(product)}
           icon={<PlusCircleOutlined />}
         >
           Add to Cart

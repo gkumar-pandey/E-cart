@@ -1,14 +1,14 @@
 import React from "react";
 import Cartcard from "./Cartcard";
-import Data from "../../Data/Data";
 import Totalprice from "./Totalprice";
 
-function Cartcontainer() {
+function Cartcontainer({ productListInCart }) {
   return (
     <div style={{ margin: "auto" }}>
-      {Data.map((product, idx) => {
+      {productListInCart.map((product, idx) => {
         return (
           <Cartcard
+            key={idx}
             img={product.img}
             name={product.product}
             price={product.price}

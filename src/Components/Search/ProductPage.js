@@ -6,35 +6,36 @@ import Data from "../../Data/Data";
 import "./Search.css";
 import Footer from "../Footer/Footer";
 import Cartcontainer from "../Cart/Cartcontainer";
-const ProductCard = ({
-  title,
-  category,
-  price,
-  rating,
-  img,
-  addToCartHandler,
-}) => {
-  return (
-    <>
-      <Col sm={12} sx={24} md={6} style={{ width: "100%" }}>
-        <Product
-          title={title}
-          category={category}
-          price={price}
-          rating={rating}
-          img={img}
-          addToCartHandler={addToCartHandler}
-        />
-      </Col>
-    </>
-  );
-};
+// const ProductCard = ({
+//   title,
+//   category,
+//   price,
+//   rating,
+//   img,
+//   addToCartHandler,
+// }) => {
+//   return (
+//     <>
+//       <Col sm={12} sx={24} md={6} style={{ width: "100%" }}>
+//         <Product
+//           title={title}
+//           category={category}
+//           price={price}
+//           rating={rating}
+//           img={img}
+//           addToCartHandler={addToCartHandler}
+//         />
+//       </Col>
+//     </>
+//   );
+// };
 
 function ProductPage() {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [productList, setProductList] = useState(Data);
   const [filterProduct, setFilterProduct] = useState(Data);
   const [searchText, setSearchText] = useState("");
+  const [addToCart, setAddToCart] = useState([]);
 
   const Search = (value) => {
     const filteredProducts = productList.filter(
@@ -61,8 +62,14 @@ function ProductPage() {
     return () => clearTimeout(timer);
   }, [searchText]);
   //! Debounce search end
-  //TODO implement add to cart function
-  const addToCartHandler = () => {};
+  //TODO : IMPLEMENT ADD TO CART FUNCTION
+  const addToCartHandler = (cart) => {
+    setAddToCart((preCart) => {
+      console.log(preCart);
+      return [cart, ...preCart];
+    });
+  };
+  // TODO : IMPLEMENT REMOVE FROM CART FUNCTION
   return (
     <>
       <Header
@@ -82,21 +89,31 @@ function ProductPage() {
             <Row>
               {filterProduct.map((product, idx) => {
                 return (
-                  <ProductCard
-                    key={idx}
-                    title={product.product}
-                    price={product.price}
-                    rating={product.rating}
-                    category={product.category}
-                    img={product.img}
-                    addToCartHandler={addToCartHandler}
-                  />
+                  <>
+                    <Col
+                      key={idx}
+                      sm={12}
+                      sx={24}
+                      md={6}
+                      style={{ width: "100%" }}
+                    >
+                      <Product
+                        product={product}
+                        title={product.product}
+                        category={product.category}
+                        price={product.price}
+                        rating={product.rating}
+                        img={product.img}
+                        addToCartHandler={addToCartHandler}
+                      />
+                    </Col>
+                  </>
                 );
               })}
             </Row>
           </Col>
           <Col md={6} sx={24} style={{ width: "100%" }}>
-            <Cartcontainer />
+            <Cartcontainer productListInCart={addToCart} />
           </Col>
         </Row>
       </div>
