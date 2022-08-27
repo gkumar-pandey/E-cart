@@ -4,9 +4,9 @@
   background-color: #fff;
   padding-left: 1rem;
 }
-
 .shipping-text {
   font-size: 2rem;
+  margin-bottom: 0;
 }
 .text {
   font-size: 1.2rem;
@@ -20,7 +20,8 @@
 
 textarea {
   padding: 0.5rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  max-width: 400px;
 }
 label {
   padding-left: 0.5rem;

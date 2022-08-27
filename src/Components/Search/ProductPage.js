@@ -7,6 +7,7 @@ import Data from "../../Data/Data";
 import "./Search.css";
 import Footer from "../Footer/Footer";
 import Cartcontainer from "../Cart/Cartcontainer";
+import Checkout from "../Checkout/Checkout";
 
 function ProductPage() {
   const [isLoggedIn, setIsLoggedIn] = useState("");
@@ -14,6 +15,7 @@ function ProductPage() {
   const [filterProduct, setFilterProduct] = useState(Data);
   const [searchText, setSearchText] = useState("");
   const [addToCart, setAddToCart] = useState([]);
+  const chockOut = true;
 
   const Search = (value) => {
     const filteredProducts = productList.filter(
@@ -75,31 +77,35 @@ function ProductPage() {
         }}
       >
         <Row>
-          <Col md={18} style={{ border: "1px solid red" }}>
+          <Col md={18}>
             <Row>
-              {filterProduct.map((product, idx) => {
-                return (
-                  <>
-                    <Col
-                      key={idx}
-                      sm={12}
-                      sx={24}
-                      md={6}
-                      style={{ width: "100%" }}
-                    >
-                      <Product
-                        product={product}
-                        title={product.product}
-                        category={product.category}
-                        price={product.price}
-                        rating={product.rating}
-                        img={product.img}
-                        addToCartHandler={addToCartHandler}
-                      />
-                    </Col>
-                  </>
-                );
-              })}
+              {chockOut ? (
+                <Checkout />
+              ) : (
+                filterProduct.map((product, idx) => {
+                  return (
+                    <>
+                      <Col
+                        key={idx}
+                        sm={12}
+                        sx={24}
+                        md={6}
+                        style={{ width: "100%" }}
+                      >
+                        <Product
+                          product={product}
+                          title={product.product}
+                          category={product.category}
+                          price={product.price}
+                          rating={product.rating}
+                          img={product.img}
+                          addToCartHandler={addToCartHandler}
+                        />
+                      </Col>
+                    </>
+                  );
+                })
+              )}
             </Row>
           </Col>
           <Col md={6} sx={24} style={{ width: "100%" }}>

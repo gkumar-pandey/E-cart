@@ -15,7 +15,6 @@ function Cartcard({ img, name, price, category, removeFromCart,id }) {
               flexDirection: "column",
               width: "40%",
               padding: "0 1rem",
-              // border: "1px solid red",
             }}
           >
             <p style={{ fontWeight: "bold" }}>{name}</p>
@@ -27,7 +26,6 @@ function Cartcard({ img, name, price, category, removeFromCart,id }) {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              // border: "1px solid red",
             }}
           >
             <p style={{ fontSize: "1.2rem", fontWeight: "500" }}>{price}</p>
