@@ -76,7 +76,6 @@ const coustemStyle = {
     margin: "5px 0",
     display: "flex",
     alignItems: "center",
-    // justifyContent: "center",
   },
 };
 
