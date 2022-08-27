@@ -1,10 +1,21 @@
 import React from "react";
 import Cartcard from "./Cartcard";
 import Totalprice from "./Totalprice";
-import { Button } from "antd";
+import { Button, message } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
-function Cartcontainer({ productListInCart, removeFromCart }) {
+function Cartcontainer({ productListInCart, removeFromCart}) {
+
+  const navigate = useNavigate()
+
+  const directToCheckOutPage = ()=> {
+    if(productListInCart.length == 0){
+      message.error('Please add product in cart')
+      return;
+    }
+    navigate('/checkout')
+  }
   return (
     <div
       style={{
@@ -47,6 +58,7 @@ function Cartcontainer({ productListInCart, removeFromCart }) {
             }}
             size="large"
             icon={<ShoppingCartOutlined />}
+            onClick={directToCheckOutPage}
           >
             Checkout
           </Button>
