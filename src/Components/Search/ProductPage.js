@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { message } from "antd";
 import { Col, Row } from "antd";
 import Header from "../Header/Header";
@@ -14,6 +14,8 @@ function ProductPage() {
   const [filterProduct, setFilterProduct] = useState(Data);
   const [searchText, setSearchText] = useState("");
   const [addToCart, setAddToCart] = useState([]);
+  const refProductInCart = useRef([]);
+  
 
   const Search = (value) => {
     const filteredProducts = productList.filter(
@@ -60,6 +62,9 @@ function ProductPage() {
     setAddToCart([...productAfterRemove]);
     message.success("Product is removed ✌🏻");
   };
+  useEffect(()=> {
+    refProductInCart.current = addToCart;
+  },[addToCart])
   return (
     <>
       <Header
@@ -104,6 +109,7 @@ function ProductPage() {
             <Cartcontainer
               removeFromCart={removeFromCart}
               productListInCart={addToCart}
+              refProductInCart= {refProductInCart.current}
             />
           </Col>
         </Row>

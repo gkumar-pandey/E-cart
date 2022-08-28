@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Divider, message } from "antd";
 import { Button } from "antd";
 import "./checkout.css";
-import Header from "../Header/Header";
 
 function Checkout() {
   let shippingAddress = "";
@@ -24,7 +23,6 @@ function Checkout() {
   };
   return (
     <>
-      <Header />
       <div className="checkout-container">
         <p className="shipping-text">Shipping</p>
         <Divider />

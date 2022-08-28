@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Cartcard from "./Cartcard";
 import Totalprice from "./Totalprice";
 import { Button, message } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
-function Cartcontainer({ productListInCart, removeFromCart}) {
+let ProductForCheckOut = [];
 
-  const navigate = useNavigate()
+function Cartcontainer({
+  productListInCart,
+  removeFromCart,
+  refProductInCart,
+}) {
+  const navigate = useNavigate();
+  ProductForCheckOut = refProductInCart;
 
-  const directToCheckOutPage = ()=> {
-    if(productListInCart.length == 0){
-      message.error('Please add product in cart')
+  const directToCheckOutPage = () => {
+    if (productListInCart.length == 0) {
+      message.error("Please add product in cart");
       return;
     }
-    navigate('/checkout')
-  }
+    navigate("/checkout");
+  };
   return (
     <div
       style={{
@@ -36,7 +42,7 @@ function Cartcontainer({ productListInCart, removeFromCart}) {
         return (
           <Cartcard
             key={idx}
-            id={product.id}
+            productId={product.id}
             img={product.img}
             name={product.product}
             price={product.price}
@@ -68,4 +74,5 @@ function Cartcontainer({ productListInCart, removeFromCart}) {
   );
 }
 
+export { ProductForCheckOut };
 export default Cartcontainer;

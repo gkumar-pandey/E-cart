@@ -3,7 +3,9 @@ import Card from "antd/lib/card/Card";
 import { InputNumber } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 
-function Cartcard({ img, name, price, category, removeFromCart,id }) {
+function Cartcard({ img, name, price, category, removeFromCart, productId }) {
+  const path = window.location.pathname;
+
   return (
     <>
       <Card size="small" className="card">
@@ -19,7 +21,12 @@ function Cartcard({ img, name, price, category, removeFromCart,id }) {
           >
             <p style={{ fontWeight: "bold" }}>{name}</p>
             <p>{category}</p>
-            <DeleteOutlined onClick={()=> removeFromCart(id)} className="delete-icon" />
+            {path !== "/checkout" && (
+              <DeleteOutlined
+                onClick={() => removeFromCart(productId)}
+                className="delete-icon"
+              />
+            )}
           </div>
           <div
             style={{
