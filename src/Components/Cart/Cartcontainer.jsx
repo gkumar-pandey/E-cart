@@ -4,16 +4,22 @@ import Totalprice from "./Totalprice";
 import { Button, message } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import { CartState } from "../CartContext/CartContext";
 
 let ProductForCheckOut = [];
 
-function Cartcontainer({
-  productListInCart,
-  removeFromCart,
-  refProductInCart,
-}) {
+function Cartcontainer({ productListInCart, refProductInCart }) {
   const navigate = useNavigate();
   ProductForCheckOut = refProductInCart;
+  const { addToCart, setAddToCart } = CartState();
+
+  const removeFromCart = (id) => {
+    const productAfterRemove = addToCart.filter((item) => {
+      return item.id !== id;
+    });
+    setAddToCart([...productAfterRemove]);
+    message.success("Product is removed ✌🏻");
+  };
 
   const directToCheckOutPage = () => {
     if (productListInCart.length == 0) {

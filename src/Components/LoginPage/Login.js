@@ -76,7 +76,6 @@ function Login() {
 
   const googleLoginBtnHandler = async () => {
     const res = await signInWithGoogle();
-    console.log(res);
 
     if (res) {
       const userName = res.user.displayName;

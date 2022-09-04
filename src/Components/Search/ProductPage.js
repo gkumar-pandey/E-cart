@@ -7,15 +7,16 @@ import Data from "../../Data/Data";
 import "./Search.css";
 import Footer from "../Footer/Footer";
 import Cartcontainer from "../Cart/Cartcontainer";
+import { CartState } from "../CartContext/CartContext";
 
 function ProductPage() {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [productList, setProductList] = useState(Data);
   const [filterProduct, setFilterProduct] = useState(Data);
   const [searchText, setSearchText] = useState("");
-  const [addToCart, setAddToCart] = useState([]);
+  // const [addToCart, setAddToCart] = useState([]);
+  const { addToCart, setAddToCart } = CartState();
   const refProductInCart = useRef([]);
-  
 
   const Search = (value) => {
     const filteredProducts = productList.filter(
@@ -42,29 +43,10 @@ function ProductPage() {
     return () => clearTimeout(timer);
   }, [searchText]);
   //! Debounce search end
-  //TODO : IMPLEMENT ADD TO CART FUNCTION
-  const addToCartHandler = (cart) => {
-    if (addToCart.includes(cart)) {
-      message.warning("Already added 🤘🏼");
-      return;
-    } else {
-      setAddToCart((preCart) => {
-        return [cart, ...preCart];
-      });
-      message.success("Item is Added to cart 🛒");
-    }
-  };
-  // TODO : IMPLEMENT REMOVE FROM CART FUNCTION
-  const removeFromCart = (id) => {
-    const productAfterRemove = addToCart.filter((item) => {
-      return item.id !== id;
-    });
-    setAddToCart([...productAfterRemove]);
-    message.success("Product is removed ✌🏻");
-  };
-  useEffect(()=> {
+
+  useEffect(() => {
     refProductInCart.current = addToCart;
-  },[addToCart])
+  }, [addToCart]);
   return (
     <>
       <Header
@@ -98,7 +80,6 @@ function ProductPage() {
                       price={product.price}
                       rating={product.rating}
                       img={product.img}
-                      addToCartHandler={addToCartHandler}
                     />
                   </Col>
                 );
@@ -107,9 +88,8 @@ function ProductPage() {
           </Col>
           <Col md={6} sx={24} style={{ width: "100%" }}>
             <Cartcontainer
-              removeFromCart={removeFromCart}
               productListInCart={addToCart}
-              refProductInCart= {refProductInCart.current}
+              refProductInCart={refProductInCart.current}
             />
           </Col>
         </Row>
