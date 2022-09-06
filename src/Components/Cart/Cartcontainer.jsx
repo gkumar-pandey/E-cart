@@ -6,11 +6,8 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { CartState } from "../CartContext/CartContext";
 
-let ProductForCheckOut = [];
-
-function Cartcontainer({ productListInCart, refProductInCart }) {
+function Cartcontainer({ productListInCart }) {
   const navigate = useNavigate();
-  ProductForCheckOut = refProductInCart;
   const { addToCart, setAddToCart } = CartState();
 
   const removeFromCart = (id) => {
@@ -28,6 +25,14 @@ function Cartcontainer({ productListInCart, refProductInCart }) {
     }
     navigate("/checkout");
   };
+
+  // console.log(productListInCart);
+
+  // ? Calculate Total price of Products in Cart
+  const TotalPrice = productListInCart.reduce((acc, item) => {
+    return acc + Number(item.price.slice(1));
+  }, 0);
+
   return (
     <div
       style={{
@@ -57,7 +62,7 @@ function Cartcontainer({ productListInCart, refProductInCart }) {
           />
         );
       })}
-      <Totalprice />
+      <Totalprice TotalPrice={TotalPrice} />
 
       {productListInCart.length !== 0 && (
         <div style={{ textAlign: "center" }}>
@@ -80,5 +85,4 @@ function Cartcontainer({ productListInCart, refProductInCart }) {
   );
 }
 
-export { ProductForCheckOut };
 export default Cartcontainer;

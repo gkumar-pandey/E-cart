@@ -2,7 +2,7 @@ import React from "react";
 import Card from "antd/lib/card/Card";
 import { Row, Col, Divider } from "antd";
 
-function Totalprice() {
+function Totalprice({ TotalPrice }) {
   return (
     <>
       <Card className="card">
@@ -16,7 +16,7 @@ function Totalprice() {
           <Col md={6}>N/A</Col>
           <Divider />
           <Col md={18}>Total</Col>
-          <Col md={6}>200</Col>
+          <Col md={6}>{TotalPrice}</Col>
         </Row>
       </Card>
     </>

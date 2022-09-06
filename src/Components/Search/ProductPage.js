@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { message } from "antd";
 import { Col, Row } from "antd";
 import Header from "../Header/Header";
 import Product from "../ProductPage/Product";
@@ -14,7 +13,6 @@ function ProductPage() {
   const [productList, setProductList] = useState(Data);
   const [filterProduct, setFilterProduct] = useState(Data);
   const [searchText, setSearchText] = useState("");
-  // const [addToCart, setAddToCart] = useState([]);
   const { addToCart, setAddToCart } = CartState();
   const refProductInCart = useRef([]);
 
@@ -44,9 +42,6 @@ function ProductPage() {
   }, [searchText]);
   //! Debounce search end
 
-  useEffect(() => {
-    refProductInCart.current = addToCart;
-  }, [addToCart]);
   return (
     <>
       <Header

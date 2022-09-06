@@ -8,6 +8,7 @@ import { CartState } from "../CartContext/CartContext";
 
 function Product({ product, img, title, category, price, rating }) {
   const { addToCart, setAddToCart } = CartState();
+
   // ! Add to Cart function Start
   const addToCartHandler = (cart) => {
     if (addToCart.includes(cart)) {

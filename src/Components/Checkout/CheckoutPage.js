@@ -5,8 +5,10 @@ import Checkout from "./Checkout";
 import Cartcontainer from "../Cart/Cartcontainer";
 import { ProductForCheckOut } from "../Cart/Cartcontainer";
 import Cartcard from "../Cart/Cartcard";
+import CartContext, { CartState } from "../CartContext/CartContext";
 
 function CheckoutPage() {
+  const { addToCart } = CartState();
   return (
     <div>
       <Header />
@@ -15,7 +17,7 @@ function CheckoutPage() {
           <Checkout />
         </Col>
         <Col md={6} sx={24} style={{ width: "100%", backgroundColor: "#eee" }}>
-          {ProductForCheckOut.map((product, idx) => {
+          {addToCart.map((product, idx) => {
             return (
               <Cartcard
                 key={idx}

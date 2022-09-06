@@ -64,7 +64,7 @@ function Checkout() {
           <Divider />
           <p className="text">Payment Method</p>
           <div>
-            <input type="radio" for="payment-method" />
+            <input type="radio" htmlFor="payment-method" />
             <label id="payment-method">
               Wallet<span>(5000 available)</span>
             </label>

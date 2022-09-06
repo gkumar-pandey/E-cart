@@ -11,7 +11,6 @@ const CartContext = ({ children }) => {
     </Cart.Provider>
   );
 };
-
 export default CartContext;
 export const CartState = () => {
   return useContext(Cart);
