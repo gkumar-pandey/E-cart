@@ -2,7 +2,7 @@ import React from "react";
 import Card from "antd/lib/card/Card";
 import { Row, Col, Divider } from "antd";
 
-function Totalprice({ TotalPrice, value, totalNoOfProducts }) {
+function Totalprice({ TotalPrice, totalNoOfProducts }) {
   return (
     <>
       <Card className="card">

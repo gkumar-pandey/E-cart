@@ -9,11 +9,9 @@ import Cartcontainer from "../Cart/Cartcontainer";
 import { CartState } from "../CartContext/CartContext";
 
 function ProductPage() {
-  const [isLoggedIn, setIsLoggedIn] = useState("");
   const [productList, setProductList] = useState(Data);
   const [filterProduct, setFilterProduct] = useState(Data);
   const [searchText, setSearchText] = useState("");
-  const { addToCart, setAddToCart } = CartState();
 
   const Search = (value) => {
     const filteredProducts = productList.filter(

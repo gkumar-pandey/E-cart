@@ -59,7 +59,6 @@ function Cartcontainer() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        border: "1px solid red",
       }}
     >
       {addToCart.length == 0 && (

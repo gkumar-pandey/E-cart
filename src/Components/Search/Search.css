@@ -1,14 +1,9 @@
-.product-container {
-  /* padding: 1rem 2rem; */
-  border: 1px solid red;
-}
-
 .card {
   width: 400px;
   margin: 1rem auto;
 }
 
-.delete-icon{
+.delete-icon {
   font-size: 1.3rem;
   display: flex;
   justify-content: flex-start;

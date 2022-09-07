@@ -5,22 +5,31 @@ import { PlusCircleOutlined } from "@ant-design/icons";
 import "./Product.css";
 import { message } from "antd";
 import { CartState } from "../CartContext/CartContext";
+import { useNavigate } from "react-router-dom";
 
 function Product({ product, img, title, category, price, rating }) {
   const { addToCart, setAddToCart } = CartState();
+  const navigate = useNavigate();
 
   // ! Add to Cart function Start
   const addToCartHandler = (cart) => {
-    if (addToCart.includes(cart)) {
-      message.warning("Already added 🤘🏼");
-      return;
+    if (localStorage.getItem("userName")) {
+      if (addToCart.includes(cart)) {
+        message.warning("Already added 🤘🏼");
+        return;
+      } else {
+        setAddToCart((preCart) => {
+          return [cart, ...preCart];
+        });
+        message.success("Item is Added to cart 🛒");
+      }
     } else {
-      setAddToCart((preCart) => {
-        return [cart, ...preCart];
-      });
-      message.success("Item is Added to cart 🛒");
+      navigate("/login");
+      return;
     }
   };
+
+  // ! if user is not Logged in then redirect to Login Page
 
   return (
     <div
