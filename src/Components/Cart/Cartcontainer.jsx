@@ -29,10 +29,10 @@ function Cartcontainer() {
 
   // ? Calculate Total price of Products in Cart
   const TotalPrice = addToCart.reduce((acc, item) => {
-    return acc + Number(item.price.slice(1));
+    return acc + Number(item.price.slice(1)) * item.qty;
   }, 0);
 
-  // No of Products
+  // show the  No of Products
   const onChange = (value, productId) => {
     addToCart.forEach((element) => {
       if (productId == element.id) {
@@ -44,7 +44,14 @@ function Cartcontainer() {
   useEffect(() => {
     setAddToCart(addToCart);
   }, [value]);
+  // ? show the NO of Products Ends
 
+  // TODO Calculate the total products available in cart container with help of reduce function
+
+  const totalNoOfProducts = addToCart.reduce((acc, item) => {
+    return acc + item.qty;
+  }, 0);
+  // Total no of products ends
   return (
     <div
       style={{
@@ -76,7 +83,10 @@ function Cartcontainer() {
           />
         );
       })}
-      <Totalprice TotalPrice={TotalPrice} />
+      <Totalprice
+        totalNoOfProducts={totalNoOfProducts}
+        TotalPrice={TotalPrice}
+      />
 
       {addToCart.length !== 0 && (
         <div style={{ textAlign: "center" }}>

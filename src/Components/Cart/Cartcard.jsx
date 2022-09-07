@@ -51,6 +51,7 @@ function Cartcard({
               value={qty}
               onChange={(value) => onChange(value, productId)}
               size="small"
+              disabled={path == "/checkout" && true}
             />
           </div>
         </div>

@@ -2,13 +2,18 @@ import React from "react";
 import Header from "../Header/Header";
 import { Row, Col } from "antd";
 import Checkout from "./Checkout";
-import Cartcontainer from "../Cart/Cartcontainer";
-import { ProductForCheckOut } from "../Cart/Cartcontainer";
 import Cartcard from "../Cart/Cartcard";
-import CartContext, { CartState } from "../CartContext/CartContext";
+import { CartState } from "../CartContext/CartContext";
+import Totalprice from "../Cart/Totalprice";
 
 function CheckoutPage() {
   const { addToCart } = CartState();
+  const totalNoOfProducts = addToCart.reduce((acc, item) => {
+    return acc + item.qty;
+  }, 0);
+  const TotalPrice = addToCart.reduce((acc, item) => {
+    return acc + Number(item.price.slice(1)) * item.qty;
+  }, 0);
   return (
     <div>
       <Header />
@@ -22,6 +27,7 @@ function CheckoutPage() {
               <Cartcard
                 key={idx}
                 id={product.id}
+                qty={product.qty}
                 img={product.img}
                 name={product.product}
                 price={product.price}
@@ -29,6 +35,10 @@ function CheckoutPage() {
               />
             );
           })}
+          <Totalprice
+            totalNoOfProducts={totalNoOfProducts}
+            TotalPrice={TotalPrice}
+          />
         </Col>
       </Row>
     </div>
