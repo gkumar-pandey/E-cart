@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "antd/lib/card/Card";
 import { InputNumber } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 
-function Cartcard({ img, name, price, category, removeFromCart, productId }) {
+function Cartcard({
+  img,
+  name,
+  price,
+  category,
+  removeFromCart,
+  productId,
+  onChange,
+  qty,
+}) {
   const path = window.location.pathname;
 
   return (
@@ -36,7 +45,13 @@ function Cartcard({ img, name, price, category, removeFromCart, productId }) {
             }}
           >
             <p style={{ fontSize: "1.2rem", fontWeight: "500" }}>{price}</p>
-            <InputNumber min={1} max={10} defaultValue={1} size="small" />
+            <InputNumber
+              min={1}
+              max={10}
+              value={qty}
+              onChange={(value) => onChange(value, productId)}
+              size="small"
+            />
           </div>
         </div>
       </Card>

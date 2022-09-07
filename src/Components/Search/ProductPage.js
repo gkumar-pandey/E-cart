@@ -14,7 +14,6 @@ function ProductPage() {
   const [filterProduct, setFilterProduct] = useState(Data);
   const [searchText, setSearchText] = useState("");
   const { addToCart, setAddToCart } = CartState();
-  const refProductInCart = useRef([]);
 
   const Search = (value) => {
     const filteredProducts = productList.filter(
@@ -82,10 +81,7 @@ function ProductPage() {
             </Row>
           </Col>
           <Col md={6} sx={24} style={{ width: "100%" }}>
-            <Cartcontainer
-              productListInCart={addToCart}
-              refProductInCart={refProductInCart.current}
-            />
+            <Cartcontainer />
           </Col>
         </Row>
       </div>

@@ -6,6 +6,7 @@ const Data = [
     price: "₹100",
     rating: "⭐⭐⭐⭐⭐",
     id: 1,
+    qty: 1,
   },
   {
     product: "Toothbrush",
@@ -14,6 +15,7 @@ const Data = [
     price: "₹100",
     rating: "⭐⭐⭐⭐⭐",
     id: 2,
+    qty: 1,
   },
   {
     product: "Football",
@@ -22,6 +24,7 @@ const Data = [
     price: "₹100",
     rating: "⭐⭐⭐⭐⭐",
     id: 3,
+    qty: 1,
   },
   {
     product: "Toothpaste",
@@ -30,6 +33,7 @@ const Data = [
     price: "₹100",
     rating: "⭐⭐⭐⭐⭐",
     id: 4,
+    qty: 1,
   },
   {
     product: "IPhone XR",
@@ -38,6 +42,7 @@ const Data = [
     price: "₹100",
     rating: "⭐⭐⭐⭐⭐",
     id: 5,
+    qty: 1,
   },
   {
     product: "Basketball",
@@ -46,6 +51,7 @@ const Data = [
     price: "₹100",
     rating: "⭐⭐⭐⭐⭐",
     id: 6,
+    qty: 1,
   },
 ];
 export default Data;
