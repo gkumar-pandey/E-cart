@@ -34,13 +34,18 @@ function Product({ product, img, title, category, price, rating }) {
   return (
     <div
       className="product-card-container"
-      style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        padding: "0.5rem",
+      }}
     >
       <Card
         hoverable
         style={{
-          width: 300,
-          margin: "1rem 0",
+          width: "100%",
+          padding: "8px 8px",
         }}
         className="product-card"
         cover={<img alt="example" style={{ height: "200px" }} src={img} />}

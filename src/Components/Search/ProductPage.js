@@ -51,18 +51,21 @@ function ProductPage() {
         className="product-container"
         style={{
           backgroundColor: "#eee",
+          minHeight: "100%",
         }}
       >
         <Row>
-          <Col md={18}>
+          <Col md={17} xl={18}>
             <Row>
               {filterProduct.map((product, idx) => {
                 return (
                   <Col
                     key={idx}
+                    xl={6}
+                    lg={8}
+                    md={12}
                     sm={12}
-                    sx={24}
-                    md={6}
+                    xs={24}
                     style={{ width: "100%" }}
                   >
                     <Product
@@ -78,7 +81,15 @@ function ProductPage() {
               })}
             </Row>
           </Col>
-          <Col md={6} sx={24} style={{ width: "100%" }}>
+          <Col
+            md={7}
+            xl={6}
+            style={{
+              width: "100%",
+              minHeight: "100%",
+              padding: "1rem 0.4rem",
+            }}
+          >
             <Cartcontainer />
           </Col>
         </Row>
