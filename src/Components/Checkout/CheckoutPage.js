@@ -18,10 +18,10 @@ function CheckoutPage() {
     <div>
       <Header />
       <Row>
-        <Col md={18}>
+        <Col xl={18} lg={16}>
           <Checkout />
         </Col>
-        <Col md={6} sx={24} style={{ width: "100%", backgroundColor: "#eee" }}>
+        <Col xl={6} lg={8} style={{ width: "100%", backgroundColor: "#eee" }}>
           {addToCart.map((product, idx) => {
             return (
               <Cartcard
