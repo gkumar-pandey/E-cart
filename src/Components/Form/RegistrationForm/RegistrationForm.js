@@ -1,7 +1,7 @@
 import React from "react";
 import Label from "../LoginForm/Components/Label";
 import { Button, Form, Input } from "antd";
-import { LockOutlined } from "@ant-design/icons";
+import { LockOutlined, UserOutlined, MailTwoTone } from "@ant-design/icons";
 
 //TODO: Create UI of Registration Form
 // TODO : -> Create Validation Funtion for Registration
@@ -11,13 +11,10 @@ import { LockOutlined } from "@ant-design/icons";
 
 const RegistrationForm = (props) => {
   const {
-    userNameValidation,
-    emailValidationStatus,
-    passwordValidationStatus,
-    confirmPasswordValidation,
     userName,
     setUserName,
     email,
+    setEmail,
     password,
     setPassword,
     confirmPass,
@@ -30,21 +27,41 @@ const RegistrationForm = (props) => {
   return (
     <div>
       <Form layout="vertical" autoComplete="off">
-        <Form.Item hasFeedback label={<Label title={"Username"} />} required>
-          <Input onChange={userNameHandler} placeholder="Enter your username" />
-        </Form.Item>
         <Form.Item
-          name={"email"}
+          validateStatus={userNameValidation.status}
+          name={"Username"}
+          help={userNameValidation.msg}
+          hasFeedback
+          label={<Label title={"Full name"} />}
+          required
+        >
+          <Input
+            onChange={(e) => setUserName(e.target.value)}
+            value={userName}
+            placeholder="Enter your full name"
+          />
+        </Form.Item>
+
+        <Form.Item
           label={<Label title={"Email"} />}
+          validateStatus={emailValidation.status}
+          help={emailValidation.msg}
           required
           hasFeedback
           rules={[{ required: true, message: "Please enter your email" }]}
         >
-          <Input onChange={emailHandler} placeholder="abc@gmail.com" />
+          <Input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="abc@gmail.com"
+            prefix={<MailTwoTone />}
+          />
         </Form.Item>
         <Form.Item
           name="password"
           required
+          validateStatus={passValidation.status}
+          help={passValidation.msg}
           hasFeedback
           label={<Label title={"Password"} />}
           rules={[
@@ -55,7 +72,8 @@ const RegistrationForm = (props) => {
           ]}
         >
           <Input.Password
-            onChange={passwordHandler}
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
             placeholder="Password"
             prefix={<LockOutlined />}
           />
@@ -63,52 +81,27 @@ const RegistrationForm = (props) => {
         <Form.Item
           required
           name="confirm password"
+          validateStatus={confirmPassValidation.status}
+          help={confirmPassValidation.msg}
           hasFeedback
           label={<Label title={"Confirm Password"} />}
           rules={[
             {
               required: true,
               message: "Please confirm your password!"
-            },
-            ({ getFieldValue }) => ({
-              validator(_, value) {
-                if (!value || getFieldValue("password") === value) {
-                  return Promise.resolve();
-                }
-                return Promise.reject(
-                  new Error("The two passwords that you entered do not match!")
-                );
-              }
-            })
+            }
           ]}
         >
           <Input.Password
             placeholder="Confirm Password"
-            onChange={confirmPasswordHandler}
+            value={confirmPass}
+            onChange={(e) => setConfirmPass(e.target.value)}
             prefix={<LockOutlined />}
           />
         </Form.Item>
-        {/* <Form.Item>
-          <Button
-            htmlType="submit"
-            style={coustemStyle.btn}
-            block
-            size="large"
-            type="primary"
-            onClick={onClickHandler}
-          >
-            Register
-          </Button>
-        </Form.Item> */}
       </Form>
     </div>
   );
-};
-
-const coustemStyle = {
-  btn: {
-    fontWeight: "bolder"
-  }
 };
 
 export default RegistrationForm;
