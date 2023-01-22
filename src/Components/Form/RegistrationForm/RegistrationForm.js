@@ -19,12 +19,13 @@ const RegistrationForm = (props) => {
     setUserName,
     email,
     password,
-    confirmPassword,
-    emailHandler,
-    passwordHandler,
-    confirmPasswordHandler,
-    userNameHandler,
-    onClickHandler
+    setPassword,
+    confirmPass,
+    setConfirmPass,
+    userNameValidation,
+    emailValidation,
+    passValidation,
+    confirmPassValidation
   } = props;
   return (
     <div>
