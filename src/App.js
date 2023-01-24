@@ -1,7 +1,5 @@
 import "./App.css";
 import Home from "./Components/HomePage/Home";
-import Register from "./Components/RegisterPage/Register";
-import Login from "./Components/LoginPage/Login";
 import "antd/dist/antd.css";
 import CheckoutPage from "./Components/Checkout/CheckoutPage";
 import Thanks from "./Components/Thanks/Thanks";
@@ -19,7 +17,6 @@ import LoginPage from "./Pages/AuthPage/LoginPage/LoginPage";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { pathname } = useLocation();
 
   return (
