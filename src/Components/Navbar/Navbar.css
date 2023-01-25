@@ -4,13 +4,19 @@
     box-sizing: border-box;
 }
 
+:root {
+    --navbar-color: #fff
+}
+
 .navbar{
-    border: 1px solid red;
+    background-color: var(--navbar-color);
     display: flex;
     align-items: center;
     flex : 1;
     padding:  0 3.5rem;
-    min-height: 10vh;
+    min-height: 8vh;
+    position: sticky;
+    
      
 }
 
@@ -18,8 +24,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     flex: 1;
+}
+
+.menu-icon {
+    /* border: 1px solid green; */
+    font-size: 2rem;
+    display: none;
 }
 
  
@@ -31,7 +43,7 @@
 }
 
 .left-nav {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     display: flex;
     align-items: center;
     
@@ -52,7 +64,49 @@
 }
 
 .right-nav {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     display: flex; 
      
+    align-items: center;
+    justify-content: end;
+}
+
+.nav-icon {
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+.nav-icon p{
+    margin-bottom: 0;
+    font-weight: bold;
+    
+
+}
+
+/* For mobile */
+
+@media screen and (max-width: 600px) {
+    .navbar{
+        /* background-color: blue; */
+        padding: 0 0.4rem;
+    }
+
+    .navbar-wrapper{
+        margin: 0;
+    }
+    .menu-icon {
+        display: inline-block;
+    }
+    .left-nav button{
+        display: none;
+    }
+    .nav-icon{
+        margin: 0 0.4rem;
+    }
+    #avatar-icon {
+        display: none;
+    }
 }
