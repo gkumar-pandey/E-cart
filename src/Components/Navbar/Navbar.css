@@ -85,7 +85,24 @@
     
 
 }
+#drawer-btn {
+    /* border: 1px solid red; */
+    color: black;
+    padding: 0.2rem 0.6rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+     margin-bottom: 0.6rem;
+    display: inline-block;
+    width: 100%;
+}
 
+.search-bar {
+    /* border: 1px solid red; */
+    width: 30%;
+}
+ 
+ 
 /* For mobile */
 
 @media screen and (max-width: 600px) {
