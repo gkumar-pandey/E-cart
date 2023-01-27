@@ -9,11 +9,12 @@ import {
   Route,
   useLocation
 } from "react-router-dom";
-import ProductPage from "./Components/Search/ProductPage";
+
 import RegisterPage from "./Pages/AuthPage/RegisterPage/RegisterPage";
 import { useState } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import LoginPage from "./Pages/AuthPage/LoginPage/LoginPage";
+import ProductPage from "./Pages/ProductPage/ProductPage";
 import { Toaster } from "react-hot-toast";
 
 function App() {
@@ -22,11 +23,14 @@ function App() {
   return (
     <div>
       <Toaster />
-      {pathname == "/" || pathname == "/register" || pathname == "/login" ? (
+      {pathname == "/" ||
+      pathname == "/register" ||
+      pathname == "/login" ||
+      pathname == "/products" ? (
         <Navbar />
       ) : null}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<ProductPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         {/* <Route

@@ -10,6 +10,10 @@
   height: 100vh;
   /* border: 1px solid red; */
 }
+
+/* ::-webkit-scrollbar{
+  display: none;
+} */
 .container {
   border: 2px solid #d1d5da;
   background-color: white;
@@ -21,3 +25,5 @@
   align-items: center;
   border-radius: 8px;
 }
+
+ 

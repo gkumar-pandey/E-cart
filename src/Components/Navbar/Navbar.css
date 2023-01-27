@@ -15,9 +15,9 @@
     flex : 1;
     padding:  0 3.5rem;
     min-height: 8vh;
-    position: sticky;
-    
-     
+    position: fixed;
+    width: 100%;
+    z-index: 100;  
 }
 
 .navbar-wrapper{
