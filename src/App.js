@@ -15,6 +15,7 @@ import { useState } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import LoginPage from "./Pages/AuthPage/LoginPage/LoginPage";
 import { Toaster } from "react-hot-toast";
+import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 
 function App() {
   const { pathname } = useLocation();
@@ -35,6 +36,7 @@ function App() {
         />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="ordered" element={<Thanks />} /> */}
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

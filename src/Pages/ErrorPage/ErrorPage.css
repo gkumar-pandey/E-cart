@@ -1,0 +1,32 @@
+.errorpage-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-container {
+    max-width: 500px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.text {
+    text-align: center;
+}
+
+h1 {
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+@media  screen and (max-width:600px) {
+    h1{
+        padding: 0.5rem;
+        font-size: 1.8rem;
+    }
+}
