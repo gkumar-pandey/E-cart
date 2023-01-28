@@ -1,5 +1,4 @@
 import "./App.css";
-import Home from "./Components/HomePage/Home";
 import "antd/dist/antd.css";
 import CheckoutPage from "./Components/Checkout/CheckoutPage";
 import Thanks from "./Components/Thanks/Thanks";
@@ -16,6 +15,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import LoginPage from "./Pages/AuthPage/LoginPage/LoginPage";
 import { Toaster } from "react-hot-toast";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
+import HomePage from "./Pages/HomePage/HomePage";
 
 function App() {
   const { pathname } = useLocation();
@@ -27,7 +27,7 @@ function App() {
         <Navbar />
       ) : null}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         {/* <Route
