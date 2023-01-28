@@ -11,13 +11,13 @@
   /* border: 1px solid red; */
 }
 .container {
-  border: 2px solid #d1d5da;
-  background-color: white;
-  height: 500px;
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
+   width: 80%;
+   margin: auto;
+   
+}
+
+@media screen and (max-width:768px ){
+  .container{
+    width: 100%;
+  }
 }
