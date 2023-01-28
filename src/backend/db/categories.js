@@ -19,11 +19,11 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "Smart watch",
-    img: "https://res.cloudinary.com/dlykup1dh/image/upload/v1674900795/e-cart/speaker3_jqagje.webp"
+    img: "https://res.cloudinary.com/dlykup1dh/image/upload/v1674901941/e-cart/watch_3_nwa8jf.webp"
   },
   {
     _id: uuid(),
-    categories: "Wired",
+    categoryName: "Wired",
     img: "https://res.cloudinary.com/dlykup1dh/image/upload/v1674901189/e-cart/earphones_a_1_m6ng1b.webp"
   }
 ];
