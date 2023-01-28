@@ -20,9 +20,9 @@ const HeroImage = () => {
             <h3>Buy Headphone,Speakers,Smart watch</h3>
           </div>
           <div className="btn-wrapper">
-            <button>
-              <Link to={"/products"}>Shop now</Link>
-            </button>
+            <Link to={"/products"}>
+              <button>Shop now</button>
+            </Link>
           </div>
         </div>
       </div>
