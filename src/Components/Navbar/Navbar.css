@@ -15,16 +15,15 @@
     flex : 1;
     padding:  0 3.5rem;
     min-height: 8vh;
-    position: sticky;
-    
-     
+    position: fixed;
+    z-index: 1;
+    width: 100%; 
 }
 
 .navbar-wrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: 1px solid red; */
     flex: 1;
 }
 
