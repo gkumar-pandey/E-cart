@@ -2,6 +2,7 @@
     /* border: 1px solid red; */
     height: 60vh;
     position: relative;
+    padding-top: 8vh;
 }
 
 .banner-container img{
