@@ -2,6 +2,7 @@
     /* border: 1px solid red; */
     height: 60vh;
     position: relative;
+    padding-top: 8vh;
 }
 
 .banner-container img{
@@ -51,6 +52,21 @@
 
 }
 
+.title-text {
+    /* border: 1px solid red; */
+    padding: 0.6rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0.5rem 0;
+}
+.category-card {
+    width: 300px;
+    padding: 0.4rem;
+}
+
+ 
+
 @media  screen and (max-width:600px) {
     .banner-text{
         border: 1px solid red;
@@ -62,6 +78,9 @@
     }
     .banner-text h3 {
         font-size: 1rem;
+    }
+    .category-card {
+        width: 200px;
     }
 }
 
