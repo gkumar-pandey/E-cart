@@ -1,6 +1,5 @@
 .banner-container {
-    /* border: 1px solid red; */
-    height: 60vh;
+    height: 80vh;
     position: relative;
     padding-top: 8vh;
 }
@@ -9,15 +8,13 @@
     height: 100%;
     width: 100%;
     object-fit: fill;
-
 }
  
 .banner-text{
     position: absolute;
     left:5%;
-    top: 0;
-    
-    height: 100%;
+    top: 30%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,14 +24,12 @@
     font-size: 3rem;
     text-transform: uppercase;
     font-weight: bold;
-    
     padding: 0;
     margin-bottom: 0;
     color: #fff;
 }
 
 .text-container h3{
-     
     font-size: 1.5rem;
     font-weight: bold;
     padding: 0;
@@ -53,7 +48,6 @@
 }
 
 .title-text {
-    /* border: 1px solid red; */
     padding: 0.6rem;
     text-align: center;
     font-weight: bold;
@@ -61,7 +55,7 @@
     margin: 0.5rem 0;
 }
 .category-card {
-    width: 300px;
+    min-width: 150px; 
     padding: 0.4rem;
 }
 
@@ -69,7 +63,6 @@
 
 @media  screen and (max-width:600px) {
     .banner-text{
-        border: 1px solid red;
         left: 0;
         padding: 0 1rem;
     }
@@ -79,8 +72,6 @@
     .banner-text h3 {
         font-size: 1rem;
     }
-    .category-card {
-        width: 200px;
-    }
+    
 }
 
