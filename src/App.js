@@ -16,6 +16,7 @@ import LoginPage from "./Pages/AuthPage/LoginPage/LoginPage";
 import { Toaster } from "react-hot-toast";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import HomePage from "./Pages/HomePage/HomePage";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   const { pathname } = useLocation();
@@ -38,6 +39,7 @@ function App() {
         <Route path="ordered" element={<Thanks />} /> */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
