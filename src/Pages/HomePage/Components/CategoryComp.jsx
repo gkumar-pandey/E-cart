@@ -27,7 +27,7 @@ const CategoryComp = () => {
           <Row justify="center" align="middle">
             {categoryList.map((ele) => {
               return (
-                <Col key={ele._id} xs={12} sm={12} md={6}>
+                <Col key={ele._id} xs={12} sm={12} lg={6} md={6}>
                   <div
                     style={{
                       display: "flex",
