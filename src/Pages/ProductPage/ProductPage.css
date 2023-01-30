@@ -6,11 +6,9 @@
 }
 
 .side-bar {
-    background-color: red;
-    /* flex-direction: column; */
+   border: 1px solid red;
     font-size: 1.4rem;
     overflow-y: auto;
-    /* overflow: hidden; */
     flex: 0.2;
 }
 
@@ -21,14 +19,15 @@
 
 
 .products-container {
-    background-color: blueviolet;
+    border: 1px solid green;
+    padding: 0 10% ;
     overflow-y: scroll;
-    font-size: 1.4rem;
     flex: 0.8;
-    /* overflow: hidden; */
+    
 }
 
 .products-container::-webkit-scrollbar{
+    display: none;
      background-color: #fff;
     width: 10px;
     

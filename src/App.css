@@ -15,15 +15,12 @@
   display: none;
 } */
 .container {
-  border: 2px solid #d1d5da;
-  background-color: white;
-  height: 500px;
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
+  width: 80%;
+  margin: auto;
+  
+  height: 100vh;
+  
+  
 }
 
  
