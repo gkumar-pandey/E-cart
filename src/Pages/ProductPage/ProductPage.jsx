@@ -1,16 +1,43 @@
 import React from "react";
-import SingleProductCard from "../../Components/SingleProductCard/SingleProductCard";
 import "./ProductPage.css";
+import ProductCard from "../../Components/ProductCard/ProductCard";
+import { Button } from "antd";
+import Filters from "../../Components/Filters/Filters";
 
 const ProductPage = () => {
   return (
     <>
-      <main className="home-page-container">
-        <div className="side-bar"></div>
-        <div className="products-container ">
-          <SingleProductCard />
+      <div className="products-page">
+        <div className="products-page-side-bar">
+          <div className="side-bar-wrapper">
+            <Filters />
+          </div>
         </div>
-      </main>
+        <div className="products-page-main">
+          <div className="container">
+            <div className="product-container-wrapper">
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
