@@ -16,6 +16,8 @@
   padding: 0 3.5rem;
   min-height: 8vh;
   position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 
 .navbar-wrapper {
@@ -57,9 +59,7 @@
 }
 
 .right-nav {
-  /* border: 1px solid blue; */
   display: flex;
-
   align-items: center;
   justify-content: end;
 }
