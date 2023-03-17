@@ -5,19 +5,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .App {
   font-family: "Montserrat";
   height: 100vh;
-  /* border: 1px solid red; */
-}
-.container {
-   width: 80%;
-   margin: auto;
-   
 }
 
-@media screen and (max-width:768px ){
-  .container{
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+@media screen and (max-width: 770px) {
+  .container {
     width: 100%;
   }
 }
